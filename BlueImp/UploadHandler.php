@@ -138,6 +138,17 @@ class UploadHandler
                 }
             }
         }
+        else{
+            if($this->is_ps_file($file_name)) {
+                system ( "convert -density 500 '".$file_path."[0]' '$file_path.png'" , $result);
+                if ($result == 0)
+                {
+                    $file_name .= '.png';
+                    $file_path .= '.png';
+                    $new_file_path .= '.png';
+                }
+            }
+        }
         
         list($img_width, $img_height) = @getimagesize($file_path);
         if (!$img_width || !$img_height) {
