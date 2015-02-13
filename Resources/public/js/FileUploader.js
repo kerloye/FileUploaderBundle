@@ -17,13 +17,28 @@ function PunkAveFileUploader(options)
 
   self.addExistingFiles = function(files)
   {
+    var vignettes = {};
     _.each(files, function(file) {
-      appendEditableImage({
-        // cmsMediaUrl is a global variable set by the underscoreTemplates partial of MediaItems.html.twig
-        'thumbnail_url': viewUrl + '/thumbnails/' + file,
-        'url': viewUrl + '/originals/' + file,
-        'name': file
-        });
+        if( (file.search('.pdf.png') > 0 )){
+            vignettes[file.replace('.png','')] = file;
+        }
+    });
+    _.each(files, function(file) {
+      if(! (file.search('.pdf.png') > 0 )){
+            tf = file.split(".").pop();
+            if(tf == 'jpg' ||  tf == 'png' || tf == 'jpeg' || tf == 'gif')  
+                th  = viewUrl + '/thumbnails/' + file;
+            else if(tf == 'pdf' && vignettes[file] != undefined )  
+                th  = viewUrl + '/thumbnails/' + file + '.png';
+            else 
+                th  = options.iconTypeFileUrl + '/' + tf + '.png';
+            appendEditableImage({
+              // cmsMediaUrl is a global variable set by the underscoreTemplates partial of MediaItems.html.twig
+              'thumbnail_url': th,
+              'url': viewUrl + '/originals/' + file,
+              'name': file
+            });
+        }
     });
   };
 
@@ -110,6 +125,7 @@ function PunkAveFileUploader(options)
       if (data)
       {
         _.each(data.result, function(item) {
+            item = item[0];
           appendEditableImage(item);
         });
       }
@@ -134,6 +150,14 @@ function PunkAveFileUploader(options)
       self.errorCallback(info);
       return;
     }
+    if(info.thumbnailUrl)
+        info.thumbnail_url = info.thumbnailUrl;
+    if(!info.thumbnail_url){
+        options.iconTypeFileUrl + '/' + tf + '.png';
+        tf = info.name.split(".").pop();
+        info.thumbnail_url = options.iconTypeFileUrl + '/' + tf + '.png';
+    }
+    console.log(info);
     var li = $(fileTemplate(info));
     li.find('[data-action="delete"]').click(function(event) {
       var file = $(this).closest('[data-name]');
@@ -177,5 +201,3 @@ function PunkAveFileUploader(options)
     return finalURL;
   }
 }
-
-
