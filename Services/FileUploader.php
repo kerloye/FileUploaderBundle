@@ -21,6 +21,15 @@ class FileUploader
         return $this->options['file_manager']->getFiles($options);
     }
 
+    public function getCleanFiles($options = array())
+    {
+        $files = $this->options['file_manager']->getFiles($options);
+        foreach($files as $key => $file){
+            if(strpos(strtolower($file),'.pdf.png'))
+                unset($files[$key]);
+        }
+        return $files;
+    }
     /**
      * Remove the folder specified by 'folder' and its contents.
      * If you pass consistent options to this method and handleFileUpload with

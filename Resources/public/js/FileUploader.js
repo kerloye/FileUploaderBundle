@@ -19,13 +19,13 @@ function PunkAveFileUploader(options)
   {
     var vignettes = {};
     _.each(files, function(file) {
-        if( (file.search('.pdf.png') > 0 )){
+        if( (file.search(/.pdf.png/i) > 0 )){
             vignettes[file.replace('.png','')] = file;
         }
     });
     _.each(files, function(file) {
-      if(! (file.search('.pdf.png') > 0 )){
-            tf = file.split(".").pop();
+      if(! (file.search(/.pdf.png/i) > 0 )){
+            tf = file.split(".").pop().toLowerCase();
             if(tf == 'jpg' ||  tf == 'png' || tf == 'jpeg' || tf == 'gif')  
                 th  = viewUrl + '/thumbnails/' + file;
             else if(tf == 'pdf' && vignettes[file] != undefined )  
@@ -157,7 +157,6 @@ function PunkAveFileUploader(options)
         tf = info.name.split(".").pop();
         info.thumbnail_url = options.iconTypeFileUrl + '/' + tf + '.png';
     }
-    console.log(info);
     var li = $(fileTemplate(info));
     li.find('[data-action="delete"]').click(function(event) {
       var file = $(this).closest('[data-name]');

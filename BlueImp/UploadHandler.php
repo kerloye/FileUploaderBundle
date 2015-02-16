@@ -1394,7 +1394,7 @@ class UploadHandler
         $response = array();
         foreach($file_names as $file_name) {
             $file_path = $this->get_upload_path($file_name);
-            $success = is_file($file_path.'.png') && $file_name[0] !== '.' && unlink($file_path.'.png');
+            $successPng = is_file($file_path.'.png') && $file_name[0] !== '.' && unlink($file_path.'.png');
             $success = is_file($file_path) && $file_name[0] !== '.' && unlink($file_path);
             if ($success) {
                 foreach($this->options['image_versions'] as $version => $options) {
@@ -1403,9 +1403,9 @@ class UploadHandler
                         if (is_file($file)) {
                             unlink($file);
                         }
-                        $file = $this->get_upload_path($file_name.'.png', $version);
-                        if (is_file($file)) {
-                            unlink($file);
+                        $file2 = $this->get_upload_path($file_name.'.png', $version);
+                        if (is_file($file2)) {
+                            unlink($file2);
                         }
                     }
                 }
