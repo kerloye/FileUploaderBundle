@@ -153,7 +153,6 @@ function PunkAveFileUploader(options)
     if(info.thumbnailUrl)
         info.thumbnail_url = info.thumbnailUrl;
     if(!info.thumbnail_url){
-        options.iconTypeFileUrl + '/' + tf + '.png';
         tf = info.name.split(".").pop();
         info.thumbnail_url = options.iconTypeFileUrl + '/' + tf + '.png';
     }
