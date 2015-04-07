@@ -24,7 +24,7 @@ class FileExtension extends Twig_Extension
 
     public function getFiles($folder)
     {
-        return $this->container->get('punk_ave.file_uploader')->getFiles(array('folder' => $folder));
+        return $this->container->get('punk_ave.file_uploader')->getCleanFiles(array('folder' => $folder));
     }
 
     public function getName()
