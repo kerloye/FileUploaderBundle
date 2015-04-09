@@ -56,6 +56,14 @@ class FileUploader
         return $this->options['file_manager']->syncFiles($options);
     }
 
+        /**
+     * Get a url
+     */
+    public function getOriginalUrl($options = array())
+    {
+        $options = array_merge($this->options, $options);
+        return $options['web_base_path'] . '/' . $options['folder'] . '/originals';
+    }
     /**
      * Handles a file upload. Call this from an action, after validating the user's
      * right to upload and delete files and determining your 'folder' option. A good
