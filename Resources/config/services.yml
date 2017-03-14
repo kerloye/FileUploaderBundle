@@ -22,8 +22,10 @@ parameters:
     - ppsx #application/vnd.openxmlformats-officedocument.presentationml.slideshow
     - potx #application/vnd.openxmlformats-officedocument.presentationml.template
     - xlsx #application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+    - xlsm #application/vnd.ms-excel.sheet.macroEnabled.12
     - xltx #application/vnd.openxmlformats-officedocument.spreadsheetml.template
     - docx #application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    - docm #application/vnd.ms-word.document.macroEnabled.12
     - dotx #application/vnd.openxmlformats-officedocument.wordprocessingml.template
     - txt #text/plain
     - rtf #text/rtf
@@ -52,6 +54,9 @@ parameters:
     - sti #application/vnd.sun.xml.impress.template
     - sxg #application/vnd.sun.xml.writer.global
     - sxm #application/vnd.sun.xml.math
+    - zip #application/zip
+    - oxo #application/oxo
+    - p7b #application/x-pkcs7-certificates
 
 
 
