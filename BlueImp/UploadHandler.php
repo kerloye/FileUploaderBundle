@@ -1019,7 +1019,7 @@ class UploadHandler
             $im->writeImage($file_image_path);
         }
         else{
-            system ( "convert -density 500 '".$file_path."[0]' '$file_image_path'" , $result);
+            system ( "convert -density 500 '".$file_path."[0]' '$file_image_path' 2>/dev/null" , $result);//  >/dev/null 2>&1 pour eviter la saturation du fichier error.log par gc
         }
         if(file_exists($file_image_path)){
              $this->create_scaled_image($file_name.'.png', $version, $options);
