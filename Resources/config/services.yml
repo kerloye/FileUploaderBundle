@@ -57,7 +57,9 @@ parameters:
     - zip #application/zip
     - oxo #application/oxo
     - p7b #application/x-pkcs7-certificates
+    - p7s #application/x-pkcs7-certificates
     - sig #application/pgp-signature
+    - xml #application/xml
 
 
 
