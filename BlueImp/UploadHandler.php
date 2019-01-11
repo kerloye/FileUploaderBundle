@@ -1119,15 +1119,15 @@ class UploadHandler
                 }
             }
             
-            if($file->type == 'application/pdf'){
-            // add for pdf
-                if ($this->create_pdf_image($file->name, 'thumbnail', $this->options['image_versions']['thumbnail'])) {
-                    $file->thumbnailUrl = $this->get_download_url(
-                        $file->name.'.png',
-                        'thumbnail'
-                    );
-                }
-            }
+//            if($file->type == 'application/pdf'){
+//            // add for pdf
+//                if ($this->create_pdf_image($file->name, 'thumbnail', $this->options['image_versions']['thumbnail'])) {
+//                    $file->thumbnailUrl = $this->get_download_url(
+//                        $file->name.'.png',
+//                        'thumbnail'
+//                    );
+//                }
+//            }
             $this->set_additional_file_properties($file);
         }
         return $file;
