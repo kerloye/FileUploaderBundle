@@ -60,6 +60,8 @@ parameters:
     - p7s #application/x-pkcs7-certificates
     - sig #application/pgp-signature
     - xml #application/xml
+    - dwg #application/acad
+    - shx #application/x-qgis
 
 
 
