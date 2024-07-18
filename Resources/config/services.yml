@@ -1,6 +1,6 @@
 parameters:
   file_uploader.max_number_of_files: ~
-  file_uploader.file_base_path: "%kernel.root_dir%/../web/uploads"
+  file_uploader.file_base_path: "%kernel.project_dir%/web/uploads"
   file_uploader.web_base_path: "/uploads"
   file_uploader.allowed_extensions:
     # Mime types are just for documentation's sake.
@@ -29,7 +29,7 @@ parameters:
     - dotx #application/vnd.openxmlformats-officedocument.wordprocessingml.template
     - txt #text/plain
     - rtf #text/rtf
-    - odt #application/vnd.oasis.opendocument.text 
+    - odt #application/vnd.oasis.opendocument.text
     - ott #application/vnd.oasis.opendocument.text-template
     - oth #application/vnd.oasis.opendocument.text-web
     - odm #application/vnd.oasis.opendocument.text-master
