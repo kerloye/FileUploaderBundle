@@ -2,11 +2,11 @@
 
 namespace PunkAve\FileUploaderBundle\Twig;
 
-use Twig_Extension;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 use Symfony\Component\DependencyInjection\Container;
 
-class FileExtension extends Twig_Extension
+class FileExtension extends AbstractExtension
 {
     protected $container;
 
